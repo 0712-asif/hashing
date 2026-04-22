@@ -5,7 +5,6 @@ import { useHashStore } from '../store/hashStore';
 function LoadGauge({ alpha }: { alpha: number }) {
   const R = 44;
   const circ = 2 * Math.PI * R;
-  const fill = Math.min(alpha, 1) * circ;
   const color =
     alpha > 0.7 ? '#ff3366' :
     alpha > 0.4 ? '#ffaa00' : '#00f5ff';

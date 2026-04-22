@@ -113,7 +113,7 @@ export const useHashStore = create<HashStore>((set, get) => ({
     // Visual: sphere arcs to bucket, stacks vertically with a rod connecting it
     // to previous sphere if it's a collision.
     if (strategy === 'chaining') {
-      const newSlots = slots.map((s) => ({ ...s, chain: s.chain ? [...s.chain] : [] }));
+      const newSlots = slots.map((s) => ({ ...s, chain: s.chain ? [...s.chain] : [] })) as Slot[];
       const slot = newSlots[hashIndex];
       const chainLenBefore = slot.chain?.length ?? 0;
 
@@ -268,7 +268,7 @@ export const useHashStore = create<HashStore>((set, get) => ({
     const hashIndex = h1(key, m);
 
     if (strategy === 'chaining') {
-      const newSlots = slots.map((s) => ({ ...s, chain: s.chain ? [...s.chain] : [] }));
+      const newSlots = slots.map((s) => ({ ...s, chain: s.chain ? [...s.chain] : [] })) as Slot[];
       const slot = newSlots[hashIndex];
       const before = slot.chain?.length || 0;
       slot.chain = slot.chain?.filter((n) => n.key !== key) || [];
